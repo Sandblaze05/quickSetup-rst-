@@ -79,6 +79,9 @@ function Install-Package {
     if (-not (Already-Installed $packageName)) {
         Write-Host "Installing package $($hashMapping[$packageName])..."
         choco install $($hashMapping[$packageName]) -y
+        if ($LASTEXITCODE -ne 0) {
+            Write-Host "FAILED to install package $($hashMapping[$packageName])."
+        }
         return
     }
 }
