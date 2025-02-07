@@ -70,6 +70,7 @@ function Install-Package {
         "gcc" = "mingw"
         "g++" = "mingw"
         "choco-cleaner" = "choco-cleaner"
+        "java" = "openjdk"
     }
 
     if (-not (Test-Path "$env:ProgramData\chocolatey\choco.exe")) {
@@ -124,6 +125,9 @@ function main {
     }
     Install-Chocolatey
     Install-Package "python"
+    Install-Package "g++"
+    Install-Package "java"
+    Install-Package "code"
     Clean-Up
 }
 
